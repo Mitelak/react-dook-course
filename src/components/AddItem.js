@@ -1,27 +1,24 @@
 import React, {Component} from 'react'
 
 export default class AddItem extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      title: '',
-      author: '',
-      tags: '',
-      state: 0,
-      lended: ''
-    }
+  state = {
+    title: '',
+    author: '',
+    tags: '',
+    lended: false,
+    lender: ''
   }
-
+  
   handleClick = (e) => {
-    e.preventDefault();
-    this.props.onSubmit(this.state);
+    e.preventDefault()
+    this.props.onSubmit(this.state)
     this.setState({
       title: '',
       author: '',
       tags: '',
-      state: 0,
-      lended: ''
-    });
+      lended: false,
+      lender: ''
+    })
   }
 
   handleChange = (e) => {
@@ -46,7 +43,7 @@ export default class AddItem extends Component {
                 onChange={this.handleChange} 
                 value={this.state.author}/>
             </label>
-            <label className="add__label">Tytuł:
+            <label className="add__label">Tagi:
               <input type="text" className="add__input" name="tags"
                 onChange={this.handleChange} 
                 value={this.state.tags}/>
